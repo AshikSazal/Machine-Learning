@@ -22,10 +22,14 @@ def vitualization(x,y,theta_0,theta_1):
     plt.ylabel('Y')
     plt.show()
 
+    return np.around(predict,5)
+
 if __name__ == '__main__':
 
-    x=np.array([0,1,2,3,4,5])
-    y=np.array([2,4,6,8,10,12])
+    x=np.array([1,2,2,3,4,4,6])
+    y=np.array([2,1,3,3,5,4,4])
     # h(x)=theta_0+theta_1*x
     theta_0,theta_1=coefficient(x,y)
-    vitualization(x,y,theta_0,theta_1)
+    predict=vitualization(x,y,theta_0,theta_1)
+    cost=np.around(((np.square(predict-y)).sum())/(2*len(y)),5)
+    print(cost)
