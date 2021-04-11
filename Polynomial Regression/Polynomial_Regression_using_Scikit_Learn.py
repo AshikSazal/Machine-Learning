@@ -28,6 +28,8 @@ from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 
+""" The train_test_split shuffled our data, so it is no longer sorted. Matplotlib will plot the points in the order it receives them, so if we feed it our arrays 
+as they are now, we’ll get some pretty weird results. To reorder the arrays, we sort y_train by x_train’s indices, and sort x_train itself. """
 y_train = y_train[X_train[:,0].argsort()]
 X_train = X_train[X_train[:, 0].argsort()]
 
