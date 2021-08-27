@@ -26,12 +26,12 @@ x_test = st.transform(x_test)
 
 
 # Fitting Logistic Regression to the training set
-regressor = LogisticRegression(random_state=0)
-regressor.fit(x_train,y_train)
+classifier = LogisticRegression(random_state=0)
+classifier.fit(x_train,y_train)
 
 
 # Predict the result
-y_pred = regressor.predict(x_test)
+y_pred = classifier.predict(x_test)
 
 
 # Accuracy result
@@ -44,7 +44,7 @@ from matplotlib.colors import ListedColormap
 x_set, y_set = x_train, y_train  
 x1, x2 = np.meshgrid(np.arange(start = x_set[:, 0].min() - 1, stop = x_set[:, 0].max() + 1, step  =0.01),  
                     np.arange(start = x_set[:, 1].min() - 1, stop = x_set[:, 1].max() + 1, step = 0.01))  
-plt.contourf(x1, x2, regressor.predict(np.array([x1.ravel(), x2.ravel()]).T).reshape(x1.shape),  
+plt.contourf(x1, x2, classifier.predict(np.array([x1.ravel(), x2.ravel()]).T).reshape(x1.shape),  
             alpha = 0.75, cmap = ListedColormap(('purple','green' )))  
 plt.xlim(x1.min(), x1.max())  
 plt.ylim(x2.min(), x2.max())  
@@ -63,7 +63,7 @@ from matplotlib.colors import ListedColormap
 x_set, y_set = x_test, y_test  
 x1, x2 = np.meshgrid(np.arange(start = x_set[:, 0].min() - 1, stop = x_set[:, 0].max() + 1, step  =0.01),  
                     np.arange(start = x_set[:, 1].min() - 1, stop = x_set[:, 1].max() + 1, step = 0.01))  
-plt.contourf(x1, x2, regressor.predict(np.array([x1.ravel(), x2.ravel()]).T).reshape(x1.shape),  
+plt.contourf(x1, x2, classifier.predict(np.array([x1.ravel(), x2.ravel()]).T).reshape(x1.shape),  
             alpha = 0.75, cmap = ListedColormap(('purple','green' )))  
 plt.xlim(x1.min(), x1.max())  
 plt.ylim(x2.min(), x2.max())  
